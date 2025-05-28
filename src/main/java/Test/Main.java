@@ -8,12 +8,12 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
-    private static final Object lockA = new Object();
-    private static final Object lockB = new Object();
-    static int count = 6  ;
-
+    /**
+     * 狠狠的 fuck u 了熏弟
+     *
+     */
     public static void main(String[] args) {
-        
+        System.out.println("测试代码这就是一坨狗屎");
     }
 }
 
