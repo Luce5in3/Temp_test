@@ -2,13 +2,8 @@ package Test;
 
 
 public class Main {
-    /**
-     * 狠狠的 fuck u 了熏弟
-     *
-     */
     public static void main(String[] args) {
-        System.out.println("测试代码这就是一坨狗屎");
-        System.out.println("没错这又是一坨");
+        System.out.println("熏弟这次不一样了，这是我新建的分支不会修改你的main");
     }
 }
 
