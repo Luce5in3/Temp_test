@@ -6,8 +6,6 @@ public class Main {
         System.out.println("熏弟这次不一样了，这是我新建的分支不会修改你的main");
 
         //第一次提交
-        //第二次提交
-
     }
 }
 
