@@ -46,4 +46,33 @@ public class Solution {
         }
         return new ArrayList<>(map.values());
     }
+
+    /**
+     * 3.最长子序列
+     * @param nums
+     * @return
+     */
+    public int longestConsecutive(int[] nums) {
+        int max = 0 ;
+        Set <Integer>set = new HashSet();
+        //转为 set 集合防止出现重复数字，因为最长计算的是不同的元素组成的最长 看样例三
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        for (int s : set) {
+            //如果有这个元素的下一个元素继续向下遍历。找到最小值
+            if(set.contains(s-1)){
+                continue;
+            }
+            //如果有这个元素的上一个元素继续遍历。
+            int y = s+1 ;
+            while(set.contains(y)){
+                y++;
+            }
+            //s 从最小值开始 向最大值走。
+            max = Math.max(max,y-s);
+        }
+        return max;
+    }
 }
