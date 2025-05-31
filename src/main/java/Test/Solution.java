@@ -75,4 +75,22 @@ public class Solution {
         }
         return max;
     }
+
+    /**
+     * 4.移动零
+     * @param nums
+     */
+    public void moveZeroes(int[] nums) {
+        int  j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(!(nums[i]==0)){
+                //找到非0 元素交换位置
+                int temp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = temp;
+                //维护下一个非零元素应该在的位置。
+                j++;
+            }
+        }
+    }
 }
