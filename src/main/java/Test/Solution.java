@@ -126,4 +126,110 @@ public class Solution {
         }
         return res;
     }
+
+    /**
+     * 6.盛水最多的容器
+     * @param height
+     * @return
+     */
+    public int maxArea(int[] height) {
+        int sum = 0;
+        int i = 0;
+        int n= height.length -1;
+
+        while(i<n){
+            int area =(n - i) *Math.min(height[i],height[n]);
+            sum = Math.max(area,sum);
+
+            if(height[i]<height[n]){
+                i++;
+            }else
+            {
+                n--;
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * 7.接雨水
+     * @param height
+     * @return
+     */
+    public int trap(int[] height) {
+        int n =height.length;
+        int left = 0;
+        int right = n-1;
+
+        int premax=0;
+        int sufmax=0;
+        int ans =0;
+
+        while(left<right){
+            premax= Math.max(premax,height[left]);
+            sufmax= Math.max(sufmax,height[right]);
+            ans +=premax < sufmax ? premax-height[left++] : sufmax -height[right--];
+        }
+        return ans;
+    }
+
+    /**
+     * 8.最长无重复子字符串
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring(String s) {
+        char[] a = s.toCharArray();
+        int left =0 ;
+        int ans =0 ;
+        int n =s.length();
+        boolean [] has = new boolean[128];
+        for(int right =0 ;right<n ;right++){
+            char c = a[right];
+            while(has[c]){
+                //使用的是ASIIC码进行对于出现重复的进行标记
+                has[a[left]]=false;
+                left ++;
+            }
+            has[c]=true;
+            ans = Math.max(ans,right-left+1);
+        }
+        return ans;
+    }
+
+    /**
+     * 9.找到字符串种的所有字母异位词
+     * @param s
+     * @param p
+     * @return
+     */
+    public List<Integer> findAnagrams(String s, String p) {
+        int slen= s.length() , plen = p.length();
+        List<Integer> ans = new ArrayList<>();
+
+        if(slen < plen){
+            return new ArrayList<>();
+        }
+
+        int [] snums = new int[26];
+        int [] pnums = new int[26];
+
+        for (int i = 0; i < plen ; i++) {
+            //初始化字符
+            ++snums[s.charAt(i)-'a'];
+            ++pnums[p.charAt(i)-'a'];
+        }
+        if(Arrays.equals(snums,pnums)){
+            ans.add(0);
+        }
+
+        for (int i = 0; i < slen - plen; i++) {
+            --snums[s.charAt(i)-'a'];
+            ++snums[s.charAt(i+plen)-'a'];
+            if(Arrays.equals(snums,pnums)){
+                ans.add(i+1);
+            }
+        }
+        return ans;
+    }
 }
