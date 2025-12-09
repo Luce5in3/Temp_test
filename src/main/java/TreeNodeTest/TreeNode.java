@@ -161,7 +161,7 @@ public class TreeNode {
         if (node.val <= min || node.val >= max) return false;
         return isValid(node.left, min, node.val) && isValid(node.right, node.val, max);
     }
-//-----------------------------------------------------升序数组转化为二叉搜索树---------------------------------------------------------\\
+//-----------------------------------------------------升序数组转化为二叉搜索树--------------------------------------------\\
 
     public TreeNode sortedArrayToBST(int[] nums) {
         return  build(nums , 0 ,nums.length-1);
