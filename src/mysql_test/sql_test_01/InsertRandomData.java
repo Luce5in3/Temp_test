@@ -1,4 +1,4 @@
-package sql_test_01;
+package mysql_test.sql_test_01;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

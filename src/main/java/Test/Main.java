@@ -1,15 +1,10 @@
-package Test;
+package main.java.Test;
 
-
-import org.w3c.dom.ls.LSInput;
-
-import javax.swing.plaf.TableHeaderUI;
-import java.sql.SQLOutput;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        int [] a = new int[0];
+        System.out.println(a.length);
     }
 }
 
